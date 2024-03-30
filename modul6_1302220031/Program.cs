@@ -1,5 +1,7 @@
 ﻿// See https://aka.ms/new-console-template for more information
 
+using System.Diagnostics;
+
 class SayaTubeUser
 {
     private int id;
@@ -53,6 +55,9 @@ class SayaTubeVideo
 
     public SayaTubeVideo(String title)
     { 
+        Debug.Assert(title.Length <= 200, "Maaf judul video terlalu panjang");
+        Debug.Assert(!string.IsNullOrEmpty(title));
+
         this.title = title;
         Random random = new Random();
         videoId = random.Next(10000, 99999);
@@ -115,3 +120,4 @@ class Program
     }
 
 }
+
